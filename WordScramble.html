@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Unscramble Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div class="game-container">
+        <!-- Spaceship Container -->
+        <div class="spaceship-container">
+            <!-- Background that grows green as the spaceship moves up -->
+            <div class="spaceship-background" id="spaceshipBackground"></div>
+            <!-- Spaceship Image -->
+           <img id="spaceship" src="spaceship.png" alt="Spaceship">
+        </div>
+
+        <div class="quiz-container">
+            <h1>Unscramble the Word!</h1>
+
+            <!-- Upload Excel file -->
+            <label for="fileUpload">Upload Excel File:</label>
+            <input type="file" id="fileUpload" accept=".xlsx">
+            
+            <p id="scrambledWord">Loading...</p>
+            <input type="text" id="userInput" placeholder="Type the word here...">
+            <button id="submitBtn" disabled>Submit</button>
+            <p id="feedback"></p>
+            <button id="nextBtn" disabled>Next</button>
+<!-- Scramble Button -->
+<button id="scrambleBtn" disabled>Scramble Word</button>
+
+
+<!-- Celebration Sound -->
+<!-- Correct Answer Sound -->
+<audio id="correctAnswerSound" src="correct.mp3"></audio>
+
+<!-- Celebration Sound for Rocket Reaching Top -->
+<audio id="rocketCelebrationSound" src="rocket-celebrate.mp3"></audio>
+            <!-- Losing Sound -->
+            <audio id="loseSound" src="lose.mp3"></audio>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

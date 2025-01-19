@@ -1,0 +1,147 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #00ffff; /* Aqua blue background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.game-container {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.spaceship-container {
+    position: relative;
+    width: 100px;
+    height: 90vh; /* Full height available for the spaceship to move */
+
+    background-color: #FFF; /* Light gray for untraveled space */
+    overflow: hidden; /* To hide parts of spaceship outside the container */
+}
+
+.spaceship-background {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #7CFC00; /* Green background representing progress */
+    height: 0%; /* Starts with 0%, will grow as score increases */
+    z-index: 1; /* Keep it below the spaceship */
+    transition: height 1s ease; /* Smooth transition as height changes */
+}
+
+#spaceship {
+    position: absolute;
+    bottom: 0;
+    margin-left: 10%;
+    width: 80px;
+    z-index: 2; /* Keep the spaceship above the green background */
+    transition: transform 1s ease; /* Smooth movement transition */
+}
+
+
+.quiz-container {
+    background-color: #afeeee; /* Light teal blue background */
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    color: #333;
+}
+
+#scrambledWord {
+    font-size: 2.5em; /* Increase the font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="text"] {
+    padding: 15px;
+    width: 90%;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0097a7;
+    transform: scale(1.05);
+}
+
+#feedback {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 15px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Confetti Styles */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction with the game */
+    z-index: 999; /* Make sure it's on top */
+}
+
+.confetti-piece {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -20px; /* Start just above the screen */
+    opacity: 0.8;
+    border-radius: 50%; /* Round shape for confetti */
+    animation: confettiFall linear infinite;
+}
+
+/* Keyframe for confetti falling animation */
+@keyframes confettiFall {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw - 50px)) translateY(calc(100vh + 50px)) rotate(720deg);
+        opacity: 0;
+    }
+}
